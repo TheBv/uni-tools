@@ -1,0 +1,18 @@
+services:
+  anyconnect-vpn:
+    image: ethack/vpn:latest
+    restart: no
+    container_name: anyconnect-vpn
+    hostname: anyconnect-vpn
+    stdin_open: true
+    tty: true
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - 2222:22
+    env_file: .env
+    command: openconnect $VPN_URL --user=$VPN_USERNAME --form-entry main:password=$VPN_PASSWORD
+    volumes:
+      - ./authorized_keys:/root/.ssh/authorized_keys
