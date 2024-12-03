@@ -1,6 +1,6 @@
 services:
   anyconnect-vpn:
-    image: ethack/vpn:latest
+    image: thebv/vpn:latest
     restart: no
     container_name: anyconnect-vpn
     hostname: anyconnect-vpn
@@ -13,6 +13,6 @@ services:
     ports:
       - 2222:22
     env_file: .env
-    command: openconnect $VPN_URL --user=$VPN_USERNAME --form-entry main:password=$VPN_PASSWORD
+    command: openconnect $VPN_URL --allow-insecure-crypto --user=$VPN_USERNAME --form-entry main:password=$VPN_PASSWORD
     volumes:
       - ./authorized_keys:/root/.ssh/authorized_keys
