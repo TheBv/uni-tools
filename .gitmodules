@@ -1,0 +1,3 @@
+[submodule "vpn-container/docker-vpn"]
+	path = vpn-container/docker-vpn
+	url = https://github.com/TheBv/docker-vpn
