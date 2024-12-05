@@ -12,6 +12,7 @@ services:
       - /dev/net/tun
     ports:
       - 2222:22
+      - 1080:1080
     env_file: .env
     command: openconnect $VPN_URL --allow-insecure-crypto --user=$VPN_USERNAME --form-entry main:password=$VPN_PASSWORD
     volumes:
